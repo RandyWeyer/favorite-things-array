@@ -1,21 +1,14 @@
 $(document).ready(function(event) {
   $("form#favorites").submit(function(event){
     event.preventDefault();
-  var favoriteThings=[];
+  var favoriteThings=["car", "tree", "food", "flower", "animal"];
 
-  var carInput = $("#car").val();
-  var treeInput = $("#tree").val();
-  var foodInput = $("#food").val();
-  var flowerInput = $("#flower").val();
-  var animalInput = $("#animal").val();
+favoriteThings.forEach(function(favoriteThing) {
+  var input = $("input#" + favoriteThing).val();
+  $("." + favoriteThing).text(input);
+});
 
-  favoriteThings.push(carInput, treeInput, foodInput, flowerInput, animalInput);
-
-  $("#carResult").text(favoriteThings[0]);
-  $("#treeResult").text(favoriteThings[1]);
-  $("#foodResult").text(favoriteThings[2]);
-  $("#flowerResult").text(favoriteThings[3]);
-  $("#animalResult").text(favoriteThings[4]);
+ $("#results").show();
 
   console.log(favoriteThings);
   });
